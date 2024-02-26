@@ -1,0 +1,386 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular.woff') format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-SemiBold.woff') format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato-Regular') format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/fonts/Lato-Bold.woff') format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
+$open-sans: 'Open Sans',
+sans-serif;
+$lato: 'Lato',
+sans-serif;
+
+$dark-blue: #333333;
+$blue: #0279e3;
+$coral: #fd9079;
+$black: #000000;
+$white: #ffffff;
+
+body {
+    margin: 0;
+}
+
+.payment-in-shares {
+    width: 100%;
+    overflow: hidden;
+
+    &__container {
+        width: 93.75%;
+        max-width: 1248px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    &__main-screen {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px 0;
+        padding: 50px 0;
+
+        @media all and (min-width: 768px) {
+            flex-direction: row;
+            padding-bottom: 255px;
+            position: relative;
+            z-index: 0;
+        }
+
+        @media all and (min-width: 1024px) {
+            padding-bottom: 305px;
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            @media all and (min-width: 768px) {
+                width: 71.64%;
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
+
+        &-figure {
+            width: 100%;
+
+            @media all and (min-width: 768px) {
+                width: 48.8%;
+                position: absolute;
+                top: clamp(10px, 10vw, 140px);
+                right: 0;
+                z-index: -1;
+            }
+        }
+
+        &-img {
+            width: 100%;
+            max-width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__h1 {
+        font-family: $open-sans;
+        font-weight: 600;
+        font-size: clamp(30px, 6vw, 85px);
+        line-height: 1.3;
+        text-transform: uppercase;
+        color: $dark-blue;
+        margin: 0;
+        margin-bottom: 20px;
+
+        &--blue {
+            color: $blue
+        }
+
+        &--coral {
+            color: $coral;
+        }
+    }
+
+    &__h2 {
+        font-family: $open-sans;
+        font-weight: 600;
+        font-size: clamp(23px, 4vw, 45px);
+        line-height: 1.3;
+        text-transform: uppercase;
+        color: $dark-blue;
+        margin: 0;
+    }
+
+    &__h3 {
+        font-family: $open-sans;
+        font-weight: 600;
+        font-size: clamp(18px, 3vw, 22px);
+        line-height: 1.3;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    &__txt {
+        width: 100%;
+        font-family: $lato;
+        font-weight: 400;
+        font-size: clamp(18px, 2vw, 25px);
+        line-height: 1.3;
+        color: $black;
+        margin-bottom: clamp(30px, 5vw, 40px);
+    }
+
+    &__text {
+        font: 400 16px / 1.5 $lato;
+    }
+
+    &__btn {
+        margin: 0;
+        padding: 15px 33px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        box-shadow: 4px 6px 0 0 #c4aa9b;
+        background: #232326;
+        font: 700 14px / 1.6 $lato;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-align: center;
+        color: $white;
+        cursor: pointer;
+        transition: all .3s;
+
+        &:hover {
+            box-shadow: 1px 2px 0 0 #c4aa9b;
+        }
+
+        &.position-center {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    &__figure {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__advantages {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px 0;
+
+        @media all and (min-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            grid-gap: 30px;
+            grid-template-areas:
+                "title images"
+                "elem1 elem2"
+                "elem3 elem3";
+
+            .grid-title {
+                grid-area: title;
+            }
+
+            .grid-elem-1 {
+                grid-area: elem1;
+            }
+
+            .grid-elem-2 {
+                grid-area: elem2;
+            }
+
+            .grid-elem-3 {
+                grid-area: elem3;
+            }
+
+            .grid-img {
+                grid-area: images;
+            }
+        }
+
+        @media all and (min-width: 1280px) {
+            grid-template-areas:
+                "title elem1"
+                "images elem2"
+                "images elem3";
+        }
+    }
+
+    &__advantage {
+        max-width: 100%;
+        border-radius: 10px;
+        background: $coral;
+        padding: 20px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        color: $white;
+
+        @media all and (min-width: 640px) {
+            padding: 30px;
+        }
+
+        @media all and (min-width: 1280px) {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            grid-template-rows: repeat(2, auto);
+            grid-gap: 10px 20px;
+            grid-template-areas:
+                "icon title"
+                "icon text";
+        }
+
+        &-icon {
+            width: 46px;
+            height: 46px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+            @media all and (min-width: 1280px) {
+                width: clamp(66px, 8vw, 104px);
+                height: clamp(66px, 8vw, 104px);
+                grid-area: icon;
+            }
+        }
+
+        &-title {
+            max-width: 80%;
+
+            @media all and (min-width: 1280px) {
+                grid-area: title;
+            }
+        }
+
+        &-info {
+            @media all and (min-width: 1280px) {
+                grid-area: text;
+            }
+        }
+    }
+
+    &__how-to-register {
+        width: 100%;
+        padding: 50px 0;
+    }
+
+    &__list {
+        margin-top: 50px;
+        counter-reset: item;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        @media all and (min-width: 860px) {
+            flex-direction: row;
+            gap: 10px;
+        }
+    }
+
+    &__item {
+        padding-bottom: 30px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-gap: 10px 18px;
+        grid-template-areas:
+            "counter title"
+            "counter text";
+
+        @media all and (min-width: 860px) {
+            width: calc((100% - 10px * 2) / 3);
+            grid-template-columns: auto;
+            grid-template-rows: repeat(3, auto);
+            grid-template-areas: "counter""title""text";
+        }
+
+        &-counter {
+            grid-area: counter;
+            width: max-content;
+
+            @media all and (min-width: 860px) {
+                width: 100%;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+                gap: 10px;
+            }
+
+            &-count {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: clamp(60px, 7vw, 78px);
+                height: clamp(60px, 7vw, 78px);
+                border-radius: 50%;
+                color: $white;
+                background: #0279e3;
+                font-family: $open-sans;
+                font-weight: 600;
+                font-size: clamp(23px, 4vw, 45px);
+                line-height: 1.3;
+
+                @media all and (min-width: 860px) {
+                    display: inline-flex;
+                }
+            }
+
+            &-stripe {
+                display: block;
+                width: 2px;
+                height: calc(100% - 30px);
+                background: #c4aa9b;
+                opacity: .3;
+                border-radius: 10px;
+                margin: 3px auto 0 auto;
+
+                @media all and (min-width: 860px) {
+                    display: inline-block;
+                    width: 100%;
+                    height: 2px;
+                }
+            }
+        }
+
+        &-h3 {
+            grid-area: title;
+        }
+
+        &-text {
+            grid-area: text;
+        }
+    }
+}
